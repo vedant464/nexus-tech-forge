@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Dark theme matching the logo */
+    /* Dark theme with white accents */
     --background: 220 25% 8%;
     --foreground: 200 20% 95%;
 
@@ -16,10 +16,10 @@
     --popover: 220 25% 10%;
     --popover-foreground: 200 20% 95%;
 
-    /* Cyan primary inspired by circuit patterns */
-    --primary: 185 85% 55%;
+    /* White primary instead of cyan */
+    --primary: 0 0% 100%;
     --primary-foreground: 220 25% 8%;
-    --primary-glow: 185 85% 70%;
+    --primary-glow: 0 0% 90%;
 
     /* Gold secondary from laurel elements */
     --secondary: 45 85% 60%;
