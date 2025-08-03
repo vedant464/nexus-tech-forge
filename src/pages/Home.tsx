@@ -59,23 +59,28 @@ export default function Home() {
               Join the premier technical club where innovation meets collaboration. 
               Build cutting-edge projects, participate in hackathons, and shape the future of technology.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button variant="hero" size="lg" className="text-lg px-8 py-3" asChild>
-                <Link to="/join">
-                  Join Our Community <ArrowRight className="ml-2" />
-                </Link>
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-3" asChild>
-                <Link to="/events">
-                  View Events
-                </Link>
-              </Button>
-              <Button variant="glow" size="lg" className="text-lg px-8 py-3" asChild>
-                <Link to="/projects">
-                  Explore Projects
-                </Link>
-              </Button>
-            </div>
+                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+               <Button 
+                 variant="hero" 
+                 size="lg" 
+                 className="text-lg px-8 py-3"
+                 asChild
+               >
+                 <Link to="/join">
+                   Join Our Community <ArrowRight className="ml-2" />
+                 </Link>
+               </Button>
+               <Button variant="outline" size="lg" className="text-lg px-8 py-3" asChild>
+                 <Link to="/events">
+                   View Events
+                 </Link>
+               </Button>
+               <Button variant="glow" size="lg" className="text-lg px-8 py-3" asChild>
+                 <Link to="/projects">
+                   Explore Projects
+                 </Link>
+               </Button>
+             </div>
           </div>
 
           {/* Stats */}
@@ -280,18 +285,23 @@ export default function Home() {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join a community of innovators, builders, and dreamers. Let's create the future together.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" className="text-lg px-8 py-3" asChild>
-              <Link to="/join">
-                Become a Member <ArrowRight className="ml-2" />
-              </Link>
-            </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-3" asChild>
-              <Link to="/contact">
-                Get in Touch
-              </Link>
-            </Button>
-          </div>
+                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
+             <Button 
+               variant="hero" 
+               size="lg" 
+               className="text-lg px-8 py-3"
+               asChild
+             >
+               <Link to="/join">
+                 Become a Member <ArrowRight className="ml-2" />
+               </Link>
+             </Button>
+             <Button variant="outline" size="lg" className="text-lg px-8 py-3" asChild>
+               <Link to="/contact">
+                 Get in Touch
+               </Link>
+             </Button>
+           </div>
         </div>
       </section>
     </div>

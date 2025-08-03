@@ -2,63 +2,20 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+import { useState } from "react";
 import { 
   UserPlus, 
-  Code2, 
-  Palette, 
-  PenTool, 
   Users, 
   Calendar,
   CheckCircle,
   ArrowRight,
-  ExternalLink,
-  Heart,
-  Star
+  ExternalLink
 } from "lucide-react";
 
 export default function Join() {
-  const roles = [
-    {
-      title: "Web Developer",
-      icon: Code2,
-      description: "Build amazing web applications using modern frameworks",
-      skills: ["React", "Node.js", "JavaScript", "Python", "Database Design"],
-      level: "Beginner to Advanced",
-      commitment: "5-8 hours/week"
-    },
-    {
-      title: "UI/UX Designer",
-      icon: Palette,
-      description: "Create beautiful and intuitive user experiences",
-      skills: ["Figma", "Adobe XD", "User Research", "Prototyping", "Design Systems"],
-      level: "Beginner to Advanced",
-      commitment: "4-6 hours/week"
-    },
-    {
-      title: "Content Writer",
-      icon: PenTool,
-      description: "Create engaging technical content and documentation",
-      skills: ["Technical Writing", "Blog Writing", "Documentation", "SEO", "Social Media"],
-      level: "Beginner to Intermediate",
-      commitment: "3-5 hours/week"
-    },
-    {
-      title: "Event Coordinator",
-      icon: Calendar,
-      description: "Organize workshops, hackathons, and networking events",
-      skills: ["Event Planning", "Communication", "Leadership", "Project Management", "Marketing"],
-      level: "Beginner to Advanced",
-      commitment: "6-10 hours/week"
-    },
-    {
-      title: "Community Manager",
-      icon: Users,
-      description: "Foster community engagement and manage social platforms",
-      skills: ["Social Media", "Community Building", "Communication", "Analytics", "Content Strategy"],
-      level: "Beginner to Intermediate",
-      commitment: "4-7 hours/week"
-    }
-  ];
+
+
 
   const steps = [
     {
@@ -73,13 +30,8 @@ export default function Join() {
     },
     {
       step: 3,
-      title: "Choose Your Role",
-      description: "Select one or more roles that match your skills and interests"
-    },
-    {
-      step: 4,
       title: "Start Contributing",
-      description: "Jump into projects and events based on your chosen role"
+      description: "Jump into projects and events based on your interests and skills"
     }
   ];
 
@@ -136,73 +88,20 @@ export default function Join() {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Join a community of passionate innovators, build amazing projects, and accelerate your career in technology.
           </p>
-          <Button variant="hero" size="lg" className="text-lg px-8 py-3">
-            Apply Now <ArrowRight className="ml-2" />
+          <Button 
+            variant="hero" 
+            size="lg" 
+            className="text-lg px-8 py-3"
+            asChild
+          >
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJiA3UDKYhS6tCtUk1rxnFcGQVj1FTIaR1K8xF6BM67CgE2w/viewform" target="_blank" rel="noopener noreferrer">
+              Apply Now <ArrowRight className="ml-2" />
+            </a>
           </Button>
         </div>
       </section>
 
-      {/* Available Roles */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Choose Your Role
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Find the perfect role that matches your skills and interests
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {roles.map((role, index) => {
-              const Icon = role.icon;
-              return (
-                <Card key={index} className="tech-card group">
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 smooth-transition">
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                    <CardTitle className="text-xl">{role.title}</CardTitle>
-                    <CardDescription className="text-base">
-                      {role.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-semibold mb-2">Required Skills:</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {role.skills.map((skill) => (
-                            <Badge key={skill} variant="outline" className="text-xs">
-                              {skill}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div className="grid grid-cols-1 gap-2 text-sm text-muted-foreground">
-                        <div className="flex items-center">
-                          <Star className="w-4 h-4 mr-2 text-primary" />
-                          Level: {role.level}
-                        </div>
-                        <div className="flex items-center">
-                          <Heart className="w-4 h-4 mr-2 text-primary" />
-                          {role.commitment}
-                        </div>
-                      </div>
-                      
-                      <Button variant="outline" className="w-full mt-4">
-                        Apply for This Role
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* How to Join */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
@@ -235,9 +134,16 @@ export default function Join() {
           </div>
 
           <div className="text-center mt-12">
-            <Button variant="hero" size="lg" className="text-lg px-8 py-3">
-              <ExternalLink className="w-5 h-5 mr-2" />
-              Fill Registration Form
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="text-lg px-8 py-3"
+              asChild
+            >
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJiA3UDKYhS6tCtUk1rxnFcGQVj1FTIaR1K8xF6BM67CgE2w/viewform" target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="w-5 h-5 mr-2" />
+                Fill Registration Form
+              </a>
             </Button>
           </div>
         </div>
@@ -313,8 +219,15 @@ export default function Join() {
             Take the first step towards an exciting journey in technology. Apply now and become part of something amazing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" className="text-lg px-8 py-3">
-              Apply Now <ArrowRight className="ml-2" />
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="text-lg px-8 py-3"
+              asChild
+            >
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJiA3UDKYhS6tCtUk1rxnFcGQVj1FTIaR1K8xF6BM67CgE2w/viewform" target="_blank" rel="noopener noreferrer">
+                Apply Now <ArrowRight className="ml-2" />
+              </a>
             </Button>
             <Button variant="outline" size="lg" className="text-lg px-8 py-3">
               Contact Us First
@@ -322,6 +235,7 @@ export default function Join() {
           </div>
         </div>
       </section>
+
     </div>
   );
 }

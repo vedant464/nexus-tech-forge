@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import RegistrationForm from "@/components/RegistrationForm";
 import { Menu, X, Code2, Users, Calendar, Trophy, UserPlus, BookOpen, Camera, Mail } from "lucide-react";
 
 const navItems = [
@@ -16,6 +17,7 @@ const navItems = [
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
@@ -53,7 +55,12 @@ export default function Navigation() {
                 {item.name}
               </Link>
             ))}
-            <Button variant="hero" size="sm" className="ml-4">
+            <Button 
+              variant="hero" 
+              size="sm" 
+              className="ml-4"
+              onClick={() => setIsRegistrationOpen(true)}
+            >
               Join Now
             </Button>
           </div>
@@ -93,13 +100,27 @@ export default function Navigation() {
                   </Link>
                 );
               })}
-              <Button variant="hero" size="sm" className="mt-4 mx-3">
+              <Button 
+                variant="hero" 
+                size="sm" 
+                className="mt-4 mx-3"
+                onClick={() => {
+                  setIsRegistrationOpen(true);
+                  setIsOpen(false);
+                }}
+              >
                 Join Now
               </Button>
             </div>
           </div>
         )}
       </div>
+
+      {/* Registration Form Modal */}
+      <RegistrationForm 
+        isOpen={isRegistrationOpen} 
+        onClose={() => setIsRegistrationOpen(false)} 
+      />
     </nav>
   );
 }
