@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import RegistrationForm from "@/components/RegistrationForm";
 import { Menu, X, Code2, Users, Calendar, Trophy, UserPlus, BookOpen, Camera, Mail } from "lucide-react";
 
 const navItems = [
@@ -17,7 +16,6 @@ const navItems = [
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
@@ -28,7 +26,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent p-2 group-hover:scale-110 smooth-transition animate-circuit-glow">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent p-1 group-hover:scale-110 smooth-transition animate-circuit-glow shadow-lg">
               <img 
                 src="/lovable-uploads/cc512054-1876-4bbf-827b-6d40e2ff655a.png" 
                 alt="ROI Tech Club" 
@@ -59,9 +57,11 @@ export default function Navigation() {
               variant="hero" 
               size="sm" 
               className="ml-4"
-              onClick={() => setIsRegistrationOpen(true)}
+              asChild
             >
-              Join Now
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJiA3UDKYhS6tCtUk1rxnFcGQVj1FTIaR1K8xF6BM67CgE2w/viewform" target="_blank" rel="noopener noreferrer">
+                Join Now
+              </a>
             </Button>
           </div>
 
@@ -104,23 +104,17 @@ export default function Navigation() {
                 variant="hero" 
                 size="sm" 
                 className="mt-4 mx-3"
-                onClick={() => {
-                  setIsRegistrationOpen(true);
-                  setIsOpen(false);
-                }}
+                asChild
               >
-                Join Now
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJiA3UDKYhS6tCtUk1rxnFcGQVj1FTIaR1K8xF6BM67CgE2w/viewform" target="_blank" rel="noopener noreferrer">
+                  Join Now
+                </a>
               </Button>
             </div>
           </div>
         )}
       </div>
 
-      {/* Registration Form Modal */}
-      <RegistrationForm 
-        isOpen={isRegistrationOpen} 
-        onClose={() => setIsRegistrationOpen(false)} 
-      />
     </nav>
   );
 }

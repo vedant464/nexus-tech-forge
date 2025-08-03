@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Link } from "react-router-dom";
 
 import { useState } from "react";
 import { 
@@ -115,7 +116,7 @@ export default function Join() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {steps.map((step) => (
               <Card key={step.step} className="tech-card group text-center">
                 <CardHeader>
@@ -229,8 +230,10 @@ export default function Join() {
                 Apply Now <ArrowRight className="ml-2" />
               </a>
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-3">
-              Contact Us First
+            <Button variant="outline" size="lg" className="text-lg px-8 py-3" asChild>
+              <Link to="/contact">
+                Contact Us First
+              </Link>
             </Button>
           </div>
         </div>
